@@ -34,7 +34,10 @@ const NewOrder = () => {
   };
 
   return (
-    <NewOrderForm onSubmit={addNewOrderHandler} isSumbitted={isSumbitted} />
+    <>
+      <h2 className="page-title">Add new order</h2>
+      <NewOrderForm onSubmit={addNewOrderHandler} isSumbitted={isSumbitted} />
+    </>
   );
 };
 

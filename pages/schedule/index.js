@@ -2,9 +2,13 @@ import ScheduledItems from "../../components/ScheduledItems";
 import { MongoClient } from "mongodb";
 import { url } from "../api/url";
 
-
 const Schedule = (props) => {
-  return <ScheduledItems items={props.items} />;
+  return (
+    <>
+      <h2 className="page-title">Scheduled Orders</h2>
+      <ScheduledItems items={props.items} />;
+    </>
+  );
 };
 
 export async function getStaticProps() {

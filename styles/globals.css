@@ -15,3 +15,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.page-title {
+  margin-bottom: 1.5rem;
+}
