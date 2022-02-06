@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Giovanni's sandwiches - created by Krisztina Fekete
 
-## Getting Started
+1) Please make sure Node is installed: open a terminal/command prompt, type node -v, then push Enter. If you cannot see the version number of your node, it must be installed. Visit https://nodejs.org/en/download/ to download and install Node.
 
-First, run the development server:
+2) Please open the project files by any code editors (VS code is suggested) then type `npm install` command to the terminal. Then pus Enter. This step is required to install the node modules to this project.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+3) Use `npm run dev`. This command runs the app in the development mode and you can view the project in (http://localhost:3000). You can close the development mode by using ctr c, then type Y (as yes)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4) To run the written unit test please type the `npm run test` then push Enter.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Notes
+-I created 2 tabs: 
+    "Add New Order" --> this should be used by the customers of Giovanni. When a new order is submitted the order data will be sent to the database
+    "Order Schedule" --> Giovanni can view here all his orders. The data that he sees is fetched from the database. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- The exact working method of the scheduling was not obvious so I understood it the following way: based on my interpretation Giovanni would like to start the schedule when he turns on the app. To achieve this, I stored into the database the orders and their duration but the schueduling (when I add the start time to each order) will happen when the app is loaded. The Start time of the first item will be equal to the actual time. For example: Giovanni has 3 not completed orders in the queue (in the database) and decides to start his work at 3:00:00 PM. In this case his starts the app at 3:00 PM so the first task will be scheduled to 3:00:00 PM, the next will be scheduled to 3:02:30 PM, etc.
 
-## Learn More
+- When I'm fetching the queued orders from the database, I use a filter to get only the orders with "pending" status
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Change the status from "pending" to "completed": it was not in the current requirement description but I assume that Giovanni would like to mark somehow the tasks that he already completed, for example by clicking on a button on the screen, or clicking on the row. In the future this function can be implemented: for example when the "Complete" button is clicked, the app should send a request to the DB and change the status of that item from "pending" to "completed" based on its "_id". 

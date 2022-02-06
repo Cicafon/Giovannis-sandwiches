@@ -1,0 +1,13 @@
+.wrapper {
+  margin: 0.5rem;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr;
+  text-align: left;
+}
+
+.box p {
+  margin: 1rem;
+}
