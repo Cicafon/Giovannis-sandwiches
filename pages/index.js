@@ -7,7 +7,7 @@ const Home = () => {
   const onClick = () => {
     router.push("/new-order");
   };
-
+  console.log(process.env)
   return (
     <div className={styles.container}>
       <h1>Welcome to Giovanni's</h1>

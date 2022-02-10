@@ -24,12 +24,7 @@ const NewOrderForm = (props) => {
     reset: amountReset,
   } = useInput(isBiggerThenZero);
 
-  let formIsValid = false;
-  if (nameIsValid && amountIsValid) {
-    formIsValid = true;
-  } else {
-    formIsValid = false;
-  }
+  let formIsValid = (nameIsValid && amountIsValid)
 
   const submitHandler = (e) => {
     e.preventDefault();

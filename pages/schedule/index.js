@@ -6,7 +6,7 @@ const Schedule = (props) => {
   return (
     <>
       <h2 className="page-title">Scheduled Orders</h2>
-      <ScheduledItems items={props.items} />;
+      <ScheduledItems items={props.items} />
     </>
   );
 };
