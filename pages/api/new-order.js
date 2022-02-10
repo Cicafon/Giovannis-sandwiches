@@ -6,9 +6,6 @@ async function handler(req, res) {
     const { name, amount } = req.body;
 
     let sandwich = `sandwich${amount === 1 ? "" : 'es'}`;
-    // if (amount > 1) {
-    //   sandwich = "sandwiches";
-    // }
 
     const makeItem = {
       text: `Make ${amount} ${sandwich} for ${name}`,
